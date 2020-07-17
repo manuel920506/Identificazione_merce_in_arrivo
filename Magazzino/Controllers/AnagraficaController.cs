@@ -21,10 +21,46 @@ namespace Magazzino.Controllers
         {
             this.magazzinoContext = magazzinoContext;
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index(string searchString, int? page)
         {
-            return View();
+            ViewBag.CurrentSort = searchString;
+            ViewBag.NoteSortParm = searchString == "note" ? "note_desc" : "note";
+            ViewBag.DescrizioneSortParm = searchString == "descrizione" ? "descrizione_desc" : "descrizione";
+            ViewBag.CodiceSortParm = String.IsNullOrEmpty(searchString) ? "codice_desc" : "";
+            var articolo = from q in magazzinoContext.Anagrafica select q;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                articolo = articolo.Where(q => q.Codice.Contains(searchString) || q.Descrizione.Contains(searchString)
+                || q.Note.Contains(searchString));
+            }
+            switch (searchString)
+            {
+                case "note":
+                    articolo = articolo.OrderBy(x => x.Note);
+                    break;
+                case "note_desc":
+                    articolo = articolo.OrderByDescending(x => x.Note);
+                    break;
+                case "descrizione":
+                    articolo = articolo.OrderBy(x => x.Descrizione);
+                    break;
+                case "descrizione_desc":
+                    articolo = articolo.OrderByDescending(x => x.Descrizione);
+                    break;
+                case "codice_desc":
+                    articolo = articolo.OrderByDescending(x => x.Codice);
+                    break;
+                default:
+                    articolo = articolo.OrderBy(x => x.Codice);
+                    break;
+            }
+            int pageSize = 2;
+            int pageNumber = (page ?? 1);
+            return View(articolo.ToPagedList(pageNumber, pageSize));
         }
+
+
+
 
         public IActionResult Create()
         {
