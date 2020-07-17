@@ -1,0 +1,44 @@
+﻿@model IPagedList<Magazzino.Models.Anagrafica>
+@using X.PagedList;
+@using X.PagedList.Mvc.Core;
+@{
+    ViewBag.Title = "Anagrafica";
+}
+<h2>Anagrafica</h2>
+<p>
+    <a asp-controller="Anagrafica" asp-action="Create">Create New</a> 
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Codice</th>
+            <th>Descrizione</th>
+            <th>Note</th>
+            <th></th>
+        </tr>
+    <thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Codice)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Descrizione)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Note)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Codice">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Codice">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Codice">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+@Html.PagedListPager(Model, page => Url.Action("Index",
+    new { page, currentFilter = ViewBag.CurrentFilter, searchString = ViewBag.CurrentSort }))
