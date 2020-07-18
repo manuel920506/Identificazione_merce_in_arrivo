@@ -30,17 +30,15 @@ namespace Magazzino.Models
         {
             modelBuilder.Entity<Anagrafica>(entity =>
             {
-                entity.HasKey(e => e.Codice);
-
-                entity.Property(e => e.Codice).HasMaxLength(50);
+                entity.Property(e => e.Codice)
+                    .IsRequired()
+                    .HasMaxLength(50);
 
                 entity.Property(e => e.Descrizione)
                     .IsRequired()
                     .HasMaxLength(250);
 
-                entity.Property(e => e.Note)
-                    .IsRequired()
-                    .HasMaxLength(250);
+                entity.Property(e => e.Note).HasMaxLength(250);
             });
 
             OnModelCreatingPartial(modelBuilder);

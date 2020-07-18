@@ -69,10 +69,11 @@ namespace Magazzino.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create([Bind("Codice,Descrizione,Note")] Anagrafica articolo)
+        public IActionResult Create([Bind("Id,Codice,Descrizione,Note")] Anagrafica articolo)
         {
             if (ModelState.IsValid)
             {
+
                 magazzinoContext.Add(articolo);
                 magazzinoContext.SaveChanges();
                 return RedirectToAction("Index");
@@ -80,15 +81,14 @@ namespace Magazzino.Controllers
 
             return View(articolo);
         }
-        public async Task<IActionResult> Details(string code)
+        public async Task<IActionResult> Details(int? Id)
         {
-            if (code == "")
+            if (Id == null)
             {
                 return NotFound();
             }
 
-            var articolo = await magazzinoContext.Anagrafica
-                .FirstOrDefaultAsync(m => m.Codice == code);
+            var articolo = await magazzinoContext.Anagrafica.FindAsync(Id);
             if (articolo == null)
             {
                 return NotFound();
@@ -96,14 +96,14 @@ namespace Magazzino.Controllers
 
             return View(articolo);
         }
-        public async Task<IActionResult> Edit(string code)
+        public async Task<IActionResult> Edit(int? Id)
         {
-            if (code == "")
+            if (Id == null)
             {
                 return NotFound();
             }
 
-            var articolo = await magazzinoContext.Anagrafica.FindAsync(code);
+            var articolo = await magazzinoContext.Anagrafica.FindAsync(Id);
             if (articolo == null)
             {
                 return NotFound();
@@ -112,9 +112,9 @@ namespace Magazzino.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string code, [Bind("Codice,Descrizione,Note")] Anagrafica articolo) 
+        public async Task<IActionResult> Edit(int Id, [Bind("Id,Codice,Descrizione,Note")] Anagrafica articolo) 
         {
-            if (code != articolo.Codice)
+            if (Id != articolo.Id)
             {
                 return NotFound();
             }
@@ -128,7 +128,7 @@ namespace Magazzino.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ItemExists(articolo.Codice))
+                    if (!ItemExists(articolo.Id))
                     {
                         return NotFound();
                     }
@@ -141,15 +141,14 @@ namespace Magazzino.Controllers
             }
             return View(articolo);
         }
-        public async Task<IActionResult> Delete(string code)
+        public async Task<IActionResult> Delete(int? Id)
         {
-            if (code == "")
+            if (Id == null)
             {
                 return NotFound();
             }
 
-            var articolo = await magazzinoContext.Anagrafica
-                .FirstOrDefaultAsync(m => m.Codice == code);
+            var articolo = await magazzinoContext.Anagrafica.FindAsync(Id);
             if (articolo == null)
             {
                 return NotFound();
@@ -160,16 +159,16 @@ namespace Magazzino.Controllers
 
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(string code)
+        public async Task<IActionResult> DeleteConfirmed(int Id)
         {
-            var articolo = await magazzinoContext.Anagrafica.FindAsync(code);
+            var articolo = await magazzinoContext.Anagrafica.FindAsync(Id);
             magazzinoContext.Anagrafica.Remove(articolo);
             await magazzinoContext.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
-        private bool ItemExists(string code)
+        private bool ItemExists(int Id)
         {
-            return magazzinoContext.Anagrafica.Any(e => e.Codice == code);
+            return magazzinoContext.Anagrafica.Any(e => e.Id == Id);
         }
     }
 }
