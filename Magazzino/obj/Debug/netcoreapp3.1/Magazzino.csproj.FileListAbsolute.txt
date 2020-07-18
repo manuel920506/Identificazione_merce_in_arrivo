@@ -159,3 +159,4 @@ C:\Users\manue\source\repos\Magazzino\Magazzino\obj\Debug\netcoreapp3.1\staticwe
 C:\Users\manue\source\repos\Magazzino\Magazzino\obj\Debug\netcoreapp3.1\Magazzino.dll
 C:\Users\manue\source\repos\Magazzino\Magazzino\obj\Debug\netcoreapp3.1\Magazzino.pdb
 C:\Users\manue\source\repos\Magazzino\Magazzino\obj\Debug\netcoreapp3.1\Magazzino.genruntimeconfig.cache
+C:\Users\manue\source\repos\Magazzino\Magazzino\obj\Debug\netcoreapp3.1\Magazzino.csprojAssemblyReference.cache

@@ -54,7 +54,7 @@ namespace Magazzino.Controllers
                     articolo = articolo.OrderBy(x => x.Codice);
                     break;
             }
-            int pageSize = 2;
+            int pageSize = 5;
             int pageNumber = (page ?? 1);
             return View(articolo.ToPagedList(pageNumber, pageSize));
         }
@@ -169,6 +169,18 @@ namespace Magazzino.Controllers
         private bool ItemExists(int Id)
         {
             return magazzinoContext.Anagrafica.Any(e => e.Id == Id);
+        }
+        public  IActionResult ValidateCodice([Bind(Prefix = "Codice")] string stringaDaValidare)
+        {
+            var codici = from t in entities.Anagrafica select t.Codice;
+            foreach (string codice in codici)
+            {
+                if (codice == stringaDaValidare)
+                {
+                    return Json(false);
+                }
+            }
+            return Json(true);
         }
     }
 }
