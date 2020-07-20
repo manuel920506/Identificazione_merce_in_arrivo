@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "9VJGZiKzlz7qkciz2G0QkiLwdQ7vZatRvTsBD0TZa8cM6HKU/b2iZXceueAPBHwSrEtlVhzucprVAVAIttqXOA==",
+  "dgSpecHash": "gAWsI9Gpp+29T5DDguEQzBnWuA5KTle+1DSNSWekECWE5QLXz91/SSbG6UlLVxFHykM+vp42ziebjg7gGVANgA==",
   "success": true,
   "projectFilePath": "C:\\Users\\manue\\source\\repos\\Magazzino\\Magazzino\\Magazzino.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\manue\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
+    "C:\\Users\\manue\\.nuget\\packages\\knockoutjs\\3.5.1\\knockoutjs.3.5.1.nupkg.sha512",
     "C:\\Users\\manue\\.nuget\\packages\\microsoft.aspnetcore.antiforgery\\2.2.0\\microsoft.aspnetcore.antiforgery.2.2.0.nupkg.sha512",
     "C:\\Users\\manue\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\manue\\.nuget\\packages\\microsoft.aspnetcore.authentication.core\\2.2.0\\microsoft.aspnetcore.authentication.core.2.2.0.nupkg.sha512",

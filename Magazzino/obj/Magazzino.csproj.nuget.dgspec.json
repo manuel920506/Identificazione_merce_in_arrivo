@@ -77,6 +77,10 @@
             "X.PagedList.Mvc.Core": {
               "target": "Package",
               "version": "[8.0.7, )"
+            },
+            "knockoutjs": {
+              "target": "Package",
+              "version": "[3.5.1, )"
             }
           },
           "imports": [

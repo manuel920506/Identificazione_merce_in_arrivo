@@ -131,9 +131,6 @@ C:\Users\manue\source\repos\Magazzino\Magazzino\bin\Debug\netcoreapp3.1\runtimes
 C:\Users\manue\source\repos\Magazzino\Magazzino\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\manue\source\repos\Magazzino\Magazzino\obj\Debug\netcoreapp3.1\Magazzino.AssemblyInfoInputs.cache
 C:\Users\manue\source\repos\Magazzino\Magazzino\obj\Debug\netcoreapp3.1\Magazzino.AssemblyInfo.cs
-C:\Users\manue\source\repos\Magazzino\Magazzino\obj\Debug\netcoreapp3.1\Magazzino.csproj.CoreCompileInputs.cache
-C:\Users\manue\source\repos\Magazzino\Magazzino\obj\Debug\netcoreapp3.1\Magazzino.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\manue\source\repos\Magazzino\Magazzino\obj\Debug\netcoreapp3.1\Magazzino.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\manue\source\repos\Magazzino\Magazzino\obj\Debug\netcoreapp3.1\Magazzino.RazorAssemblyInfo.cache
 C:\Users\manue\source\repos\Magazzino\Magazzino\obj\Debug\netcoreapp3.1\Magazzino.RazorAssemblyInfo.cs
 C:\Users\manue\source\repos\Magazzino\Magazzino\obj\Debug\netcoreapp3.1\Magazzino.TagHelpers.input.cache
@@ -160,3 +157,7 @@ C:\Users\manue\source\repos\Magazzino\Magazzino\obj\Debug\netcoreapp3.1\Magazzin
 C:\Users\manue\source\repos\Magazzino\Magazzino\obj\Debug\netcoreapp3.1\Magazzino.pdb
 C:\Users\manue\source\repos\Magazzino\Magazzino\obj\Debug\netcoreapp3.1\Magazzino.genruntimeconfig.cache
 C:\Users\manue\source\repos\Magazzino\Magazzino\obj\Debug\netcoreapp3.1\Magazzino.csprojAssemblyReference.cache
+C:\Users\manue\source\repos\Magazzino\Magazzino\obj\Debug\netcoreapp3.1\Magazzino.csproj.CoreCompileInputs.cache
+C:\Users\manue\source\repos\Magazzino\Magazzino\obj\Debug\netcoreapp3.1\Magazzino.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\manue\source\repos\Magazzino\Magazzino\obj\Debug\netcoreapp3.1\Magazzino.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\manue\source\repos\Magazzino\Magazzino\obj\Debug\netcoreapp3.1\Razor\Views\Carrelli\Index.cshtml.g.cs

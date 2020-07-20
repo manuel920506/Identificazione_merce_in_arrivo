@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<p>First Name: <input data-bind="value: firstName" /></p>
+<p>First Name: <input data-bind="value: lastName" /></p>
+<div data-bind="visible: shouldShowMessage">
+    <p>Full Name: <span data-bind="text: fullName"></span></p>
+</div>
+<button class="btn btn-success" data-bind="click: saluto">Saluto!</button>
+
+@section Scripts {
+    <script>
+        var viewModel = {
+            firstName: ko.observable("Manuel"),
+            lastName: ko.observable("Rodriguez"),
+            shouldShowMessage: ko.observable(true),
+            saluto: function () {
+                alert("Ciao Utente!! chiamami => +393349980678");
+            }
+        };
+        viewModel.fullName = ko.dependentObservable(function () {
+            return this.firstName() + " " + this.lastName();
+        }, viewModel);
+        ko.applyBindings(viewModel);
+    </script>
+}
+

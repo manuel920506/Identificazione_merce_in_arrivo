@@ -33,34 +33,11 @@ namespace Magazzino.Controllers
                 articolo = articolo.Where(q => q.Codice.Contains(searchString) || q.Descrizione.Contains(searchString)
                 || q.Note.Contains(searchString));
             }
-            switch (searchString)
-            {
-                case "note":
-                    articolo = articolo.OrderBy(x => x.Note);
-                    break;
-                case "note_desc":
-                    articolo = articolo.OrderByDescending(x => x.Note);
-                    break;
-                case "descrizione":
-                    articolo = articolo.OrderBy(x => x.Descrizione);
-                    break;
-                case "descrizione_desc":
-                    articolo = articolo.OrderByDescending(x => x.Descrizione);
-                    break;
-                case "codice_desc":
-                    articolo = articolo.OrderByDescending(x => x.Codice);
-                    break;
-                default:
-                    articolo = articolo.OrderBy(x => x.Codice);
-                    break;
-            }
+            
             int pageSize = 5;
             int pageNumber = (page ?? 1);
             return View(articolo.ToPagedList(pageNumber, pageSize));
         }
-
-
-
 
         public IActionResult Create()
         {
